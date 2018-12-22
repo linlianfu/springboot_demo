@@ -16,7 +16,7 @@ import java.util.List;
  * @description
  */
 @Configuration
-public class MyWebmvcConfiguration implements WebMvcConfigurer {
+public class GlobalWebmvcConfiguration implements WebMvcConfigurer {
 
 
     @Override
