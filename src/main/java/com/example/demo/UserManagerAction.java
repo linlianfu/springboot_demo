@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("userManager")
 @EnableConfigurationProperties(HttpProperty.class)
-@ConditionalOnProperty(prefix = "http.property",name = "test",value = "123",havingValue = "12341234")
+@ConditionalOnProperty(prefix = "http.property",name = "test",havingValue = "12341234")
 public class UserManagerAction {
 
 
