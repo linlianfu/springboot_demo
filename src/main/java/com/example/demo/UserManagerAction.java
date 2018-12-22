@@ -1,11 +1,13 @@
 package com.example.demo;
 
+import cn.eleven.common.exception.BasicRuntimeException;
 import com.example.demo.autoconfig.HttpProperty;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,12 +27,15 @@ public class UserManagerAction {
     @Autowired
     HttpProperty httpProperty;
 
-    @GetMapping("getUserInfo")
-    public String getUserInfo(){
+    @GetMapping("userInfo/{name}")
+    public String getUserInfo(@PathVariable String name){
         log.info("info");
         log.warn("warn");
         log.error("error");
         log.warn(httpProperty.getMessage());
+
+        if (name.equals("111"))
+            throw new BasicRuntimeException("111啦");
         return "eleven";
     }
 }
