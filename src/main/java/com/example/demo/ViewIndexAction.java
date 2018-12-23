@@ -20,7 +20,7 @@ public class ViewIndexAction {
     @RequestMapping("getIndex")
     public ModelAndView getIndex(){
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("/static/index");
+        modelAndView.setViewName("/static/index.html");
         return modelAndView;
     }
 

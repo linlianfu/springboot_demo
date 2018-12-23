@@ -11,8 +11,8 @@ springboot学习项目
  @EnableConfigurationProperties:表示开启属性注入，value声明的数组，
  可以在使用了EnableConfigurationProperties的对象上直接使用autowired注入value申明的属性
  
- @ConditionalOnProperty:表示当application.properties配置文件中有指定的属性的时候
-                        则ConditionalOnProperty作用类生效
+ @ConditionalOnProperty:自动配置的属性条件，
+                        表示当application.properties配置文件中有指定的属性的时候，则ConditionalOnProperty作用类生效
     1.prefix:属性前缀名称
     2.name:和prefix一起使用，表示完整的属性名，会在全局配置文件寻找{{prefix.name}}为key的属性值
     3.value同value一样的用法，注意：不能和name同时使用，否则项目启动报错
