@@ -5,7 +5,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 /**
  * @author eleven
@@ -13,7 +12,6 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
  * @description
  */
 @Configuration
-@EnableWebMvc
 public class WebServletRegistrationBean{
 
 

@@ -35,12 +35,14 @@ public class GlobalWebmvcConfiguration implements WebMvcConfigurer {
 
     /**
      * 只有经过DispatcherServlet才会进入拦截器，自定义的servlet是不会被拦截器拦截的！！！！-why?
+     *
+     * 源码分析：https://blog.csdn.net/icarusliu/article/details/78833520
      * @param registry
      */
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
 //        registry.addInterceptor(new UserLoginInterceptor());
-        registry.addInterceptor(getUserLoginInterceptor()).addPathPatterns("/web/admin/**");
+        registry.addInterceptor(getUserLoginInterceptor()).addPathPatterns("/userManager/**");
     }
 
     @Bean
