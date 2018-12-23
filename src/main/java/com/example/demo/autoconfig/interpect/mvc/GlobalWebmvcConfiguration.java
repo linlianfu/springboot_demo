@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.web.servlet.HandlerExceptionResolver;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.util.List;
@@ -37,5 +38,15 @@ public class GlobalWebmvcConfiguration implements WebMvcConfigurer {
     @Bean
     public WrappedHandlerExceptionResolver exceptionResolver() {
         return new WrappedHandlerExceptionResolver();
+    }
+
+    /**
+     * 配置静态资源的访问路径
+     * eg: http://localhost:8080/springBoot/static/index.html
+     * @param registry
+     */
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
     }
 }
