@@ -23,7 +23,7 @@ public class WebServletRegistrationBean {
         //注解扫描上下文
         AnnotationConfigWebApplicationContext applicationContext = new AnnotationConfigWebApplicationContext();
         //base package
-        applicationContext.scan("demo.gateway.web.admin");
+        applicationContext.scan("com.example.action");
         //通过构造函数指定dispatcherServlet的上下文
         DispatcherServlet adminDispatcherServlet = new DispatcherServlet(applicationContext);
 
