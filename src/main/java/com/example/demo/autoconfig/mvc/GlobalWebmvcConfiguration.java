@@ -54,7 +54,7 @@ public class GlobalWebmvcConfiguration implements WebMvcConfigurer {
 
     /**
      * 配置静态资源的访问路径
-     * http://localhost:8080/会默认定向到public 或者 static或者resouce下的index.html，找到任意一个即返回
+     * http://localhost:8080/会默认定向到public 或者 static或者resoruce下的index.html，找到任意一个即返回
      *
      * eg: http://localhost:8080/static/index.html
      * @param registry

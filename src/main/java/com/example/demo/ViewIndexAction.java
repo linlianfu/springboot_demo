@@ -17,10 +17,15 @@ import org.springframework.web.servlet.ModelAndView;
 public class ViewIndexAction {
 
 
+    /**
+     * 请求url:http://127.0.0.1:8080/view/getIndex
+     * @return
+     */
+    @ResponseBody
     @RequestMapping("getIndex")
     public ModelAndView getIndex(){
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("/static/index.html");
+        modelAndView.setViewName("index");
         modelAndView.addObject("userName","eleven");
         return modelAndView;
     }
