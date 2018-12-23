@@ -21,6 +21,7 @@ public class ViewIndexAction {
     public ModelAndView getIndex(){
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("/static/index.html");
+        modelAndView.addObject("userName","eleven");
         return modelAndView;
     }
 
