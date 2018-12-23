@@ -10,6 +10,7 @@ import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import java.util.List;
 
@@ -39,7 +40,7 @@ public class GlobalWebmvcConfiguration implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
 //        registry.addInterceptor(new UserLoginInterceptor());
-        registry.addInterceptor(new UserLoginInterceptor()).addPathPatterns("/userManager/**");
+        registry.addInterceptor(getUserLoginInterceptor()).addPathPatterns("/web/admin/**");
     }
 
     @Bean
@@ -50,6 +51,10 @@ public class GlobalWebmvcConfiguration implements WebMvcConfigurer {
     @Bean
     public WrappedHandlerExceptionResolver exceptionResolver() {
         return new WrappedHandlerExceptionResolver();
+    }
+    @Bean
+    public HandlerInterceptorAdapter getUserLoginInterceptor() {
+        return new UserLoginInterceptor();
     }
 
     /**
