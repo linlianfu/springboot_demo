@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.gateway.web.admin;
 
 import cn.eleven.common.exception.BasicRuntimeException;
 import com.example.demo.autoconfig.HttpProperty;
