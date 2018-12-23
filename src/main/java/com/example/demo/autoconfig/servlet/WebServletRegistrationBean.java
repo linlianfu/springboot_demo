@@ -1,4 +1,4 @@
-package com.example.demo.autoconfig;
+package com.example.demo.autoconfig.servlet;
 
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
@@ -22,8 +22,6 @@ public class WebServletRegistrationBean {
 
         //注解扫描上下文
         AnnotationConfigWebApplicationContext applicationContext = new AnnotationConfigWebApplicationContext();
-        //base package
-        applicationContext.scan("com.example.action");
         //通过构造函数指定dispatcherServlet的上下文
         DispatcherServlet adminDispatcherServlet = new DispatcherServlet(applicationContext);
 
@@ -34,6 +32,24 @@ public class WebServletRegistrationBean {
         registrationBean.addUrlMappings("/web/admin/*");
         //指定name，如果不指定默认为dispatcherServlet
         registrationBean.setName("spring-mvc-web-admin");
+
+        return registrationBean;
+    }
+    @Bean
+    public ServletRegistrationBean registerPortalServlet(){
+
+        //注解扫描上下文
+        AnnotationConfigWebApplicationContext applicationContext = new AnnotationConfigWebApplicationContext();
+        //通过构造函数指定dispatcherServlet的上下文
+        DispatcherServlet adminDispatcherServlet = new DispatcherServlet(applicationContext);
+
+        //用ServletRegistrationBean包装servlet
+        ServletRegistrationBean registrationBean = new ServletRegistrationBean(adminDispatcherServlet);
+        registrationBean.setLoadOnStartup(1);
+        //指定url映射
+        registrationBean.addUrlMappings("/web/front/*");
+        //指定name，如果不指定默认为dispatcherServlet
+        registrationBean.setName("spring-mvc-front-admin");
 
         return registrationBean;
     }

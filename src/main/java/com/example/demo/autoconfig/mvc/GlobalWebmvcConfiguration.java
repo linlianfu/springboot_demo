@@ -1,11 +1,13 @@
-package com.example.demo.autoconfig.interpect.mvc;
+package com.example.demo.autoconfig.mvc;
 
 import cn.eleven.common.intercept.WrappedHandlerExceptionResolver;
 import cn.eleven.common.intercept.WriteFastJsonHttpMessageConverter;
+import com.example.demo.autoconfig.interpect.UserLoginInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.web.servlet.HandlerExceptionResolver;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -28,6 +30,16 @@ public class GlobalWebmvcConfiguration implements WebMvcConfigurer {
     @Override
     public void extendHandlerExceptionResolvers(List<HandlerExceptionResolver> resolvers) {
         resolvers.add(exceptionResolver());
+    }
+
+    /**
+     * 只有经过DispatcherServlet才会进入拦截器，自定义的servlet是不会被拦截器拦截的！！！！-why?
+     * @param registry
+     */
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+//        registry.addInterceptor(new UserLoginInterceptor());
+        registry.addInterceptor(new UserLoginInterceptor()).addPathPatterns("/userManager/**");
     }
 
     @Bean
