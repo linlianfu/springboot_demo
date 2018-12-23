@@ -20,7 +20,8 @@ public class DemoApplication {
 	}
 
 	/**
-	 * 使用了@EnableWebMvc，就需要指定的试图模板，否则通过controller访问html，将出现 找不到html的页面
+     * 使用 @EnableWebMvc 注解，需要以编程的方式指定视图文件相关配置；
+	 * 就需要指定的试图模板，否则通过controller访问html，将出现 找不到html的页面
 	 * 具体原因带研究
 	 * @return
 	 */
