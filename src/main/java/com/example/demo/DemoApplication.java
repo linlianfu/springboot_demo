@@ -3,26 +3,27 @@ package com.example.demo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.context.annotation.Bean;
+import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.FilterType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 /**
  * 当前启动类和自定义的controller不在同一个包下的时候，需要指定要扫描的包
  */
-//@ComponentScan(basePackages = "com.example.action")
+//@SpringBootApplication
 @SpringBootConfiguration
 @EnableAutoConfiguration
-@ComponentScan(
-		excludeFilters ={
-			@ComponentScan.Filter(
-					type = FilterType.ANNOTATION,
-					classes = {Controller.class,RestController.class}
-					),
-})
+abstract @ComponentScan(
+        excludeFilters = {
+                @ComponentScan.Filter(
+                        type = FilterType.ANNOTATION,
+                        classes = {
+                                Controller.class, RestController.class
+                        })
+        }
+)
 public class DemoApplication {
 
 	public static void main(String[] args) {
@@ -30,6 +31,8 @@ public class DemoApplication {
 //		SpringApplication application = new SpringApplication(DemoApplication.class);
 //		application.setBannerMode(Banner.Mode.OFF);
 //		application.run(args);
+		ServletRegistrationBean servletRegistrationBean = new ServletRegistrationBean();
+		servletRegistrationBean.setMultipartConfig();
 	}
 
 	/**
@@ -38,13 +41,13 @@ public class DemoApplication {
 	 * 具体原因带研究
 	 * @return
 	 */
-	@Bean
-	public InternalResourceViewResolver setupViewResolver() {
-		InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-		/** 设置视图路径的前缀 */
-		resolver.setPrefix("/static/");
-		/** 设置视图路径的后缀 */
-		resolver.setSuffix(".html");
-		return resolver;
-	}
+//	@Bean
+//	public InternalResourceViewResolver setupViewResolver() {
+//		InternalResourceViewResolver resolver = new InternalResourceViewResolver();
+//		/** 设置视图路径的前缀 */
+//		resolver.setPrefix("/static/");
+//		/** 设置视图路径的后缀 */
+//		resolver.setSuffix(".html");
+//		return resolver;
+//	}
 }
