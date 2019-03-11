@@ -3,7 +3,6 @@ package com.example.demo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.FilterType;
 import org.springframework.stereotype.Controller;
@@ -32,8 +31,6 @@ public class DemoApplication {
 //		SpringApplication application = new SpringApplication(DemoApplication.class);
 //		application.setBannerMode(Banner.Mode.OFF);
 //		application.run(args);
-		ServletRegistrationBean servletRegistrationBean = new ServletRegistrationBean();
-		servletRegistrationBean.setMultipartConfig();
 	}
 
 	/**
