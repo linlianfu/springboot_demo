@@ -4,7 +4,6 @@ import cn.eleven.common.exception.BasicRuntimeException;
 import com.example.demo.autoconfig.HttpProperty;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,8 +19,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("userManager")
 @EnableConfigurationProperties(HttpProperty.class)
-@ConditionalOnProperty(prefix = "http.property",name = "test",havingValue = "12341234")
+//@ConditionalOnProperty(prefix = "http.property",name = "test",havingValue = "12341234")
 public class UserManagerAction {
+    UserManagerAction(){
+        log.info("userManager 初始化");
+    }
 
 
     @Autowired

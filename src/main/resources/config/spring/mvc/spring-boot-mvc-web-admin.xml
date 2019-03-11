@@ -20,8 +20,5 @@
     <mvc:annotation-driven/>
     <!--平台层web测请求入口所在的控制器-->
     <context:component-scan base-package="com.example.demo.gateway.web.admin"/>
-    <!--<mvc:interceptors>-->
-        <!--<bean class="cn.llf.framework.gateway.interceptor.UserLoginInterceptor"/>-->
-    <!--</mvc:interceptors>-->
 
 </beans>

@@ -24,7 +24,7 @@ import javax.servlet.ServletRegistration;
 public class WebAdminDispatcherServlet implements ServletContextInitializer {
 
     public WebAdminDispatcherServlet(){
-        log.info("servlet初始化");
+        log.info("admin servlet初始化");
     }
 
     @Override
