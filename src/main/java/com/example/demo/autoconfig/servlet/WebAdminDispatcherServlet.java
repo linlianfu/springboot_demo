@@ -29,7 +29,7 @@ public class WebAdminDispatcherServlet implements ServletContextInitializer {
 
     @Override
     public void onStartup(ServletContext servletContext) throws ServletException {
-        log.info(">>>>>admin servlet初始化");
+        log.info(">>>>>admin sservlet初始化");
         XmlWebApplicationContext appContext = new XmlWebApplicationContext();
         appContext.setConfigLocation("classpath:config/spring/mvc/spring-boot-mvc-web-admin.xml");
         ServletRegistration.Dynamic dispatcher = servletContext.addServlet("spring-boot-mvc-web-admin", new DispatcherServlet(appContext));
