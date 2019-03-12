@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
  * @description
  *   1。访问路径  http://localhost:8080/springBoot/web/admin/userManager/userInfo/asdasd
  *   domain+context-path+servlet+controller+method(区分是否适用标准restful)
- *   2，参考springboot启动全过程：https://blog.csdn.net/findbestoy/article/details/79749438
  */
 @Slf4j
 @RestController

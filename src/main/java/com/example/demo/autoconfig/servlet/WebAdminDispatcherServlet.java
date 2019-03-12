@@ -15,7 +15,7 @@ import javax.servlet.ServletRegistration;
  * @date 2018/12/26
  * @description admin的dispatcherServlet注册
  *
- *
+ * 1，参考springboot启动全过程：https://blog.csdn.net/findbestoy/article/details/79749438
  *
  * 带研究文章：https://blog.csdn.net/songhaifengshuaige/article/details/54138023
  */
