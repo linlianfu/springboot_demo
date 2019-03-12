@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author eleven
  * @date 2018/12/15
  * @description
- *   1。访问路径  http://localhost:8080/springBoot/web/admin/userManager/userInfo
+ *   1。访问路径  http://localhost:8080/springBoot/web/admin/userManager/userInfo/asdasd
  *   domain+context-path+servlet+controller+method(区分是否适用标准restful)
  */
 @Slf4j
