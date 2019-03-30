@@ -1,5 +1,6 @@
 package com.example.demo.service.courseManager;
 
+import cn.eleven.common.dao.Page;
 import com.example.demo.model.CoursePO;
 
 import java.util.List;
@@ -22,4 +23,15 @@ public interface ICourseManager {
      * @return
      */
     List<CoursePO> listBySpecification();
+
+    /**
+     * 分页查询
+     * @return
+     */
+    Page<CoursePO> page();
+
+    /**
+     * 新增数据
+     */
+    CoursePO add(CoursePO entity);
 }
