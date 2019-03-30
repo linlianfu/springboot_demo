@@ -16,4 +16,10 @@ public interface ICourseManager {
      * @return
      */
     List<CoursePO> findAll();
+
+    /**
+     * 通过Specification指定条件查询
+     * @return
+     */
+    List<CoursePO> listBySpecification();
 }

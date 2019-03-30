@@ -31,4 +31,12 @@ public class CourseManagerAction {
     public List<CoursePO> findAll(){
         return courseManager.findAll();
     }
+    /**
+     * 获取所有课程
+     * @return
+     */
+    @GetMapping("listBySpecification")
+    public List<CoursePO> listBySpecification(){
+        return courseManager.listBySpecification();
+    }
 }

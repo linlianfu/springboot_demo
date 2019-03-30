@@ -7,9 +7,11 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.mongodb.core.query.UntypedExampleMatcher;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.criteria.Predicate;
 import java.util.List;
 
 /**
@@ -38,6 +40,21 @@ public class CourseManagerImpl implements ICourseManager {
                 .withStringMatcher(ExampleMatcher.StringMatcher.CONTAINING).withIgnoreNullValues();
         Example<CoursePO> example = Example.of(queryDto,untypedExampleMatcher);
         List<CoursePO> conditionList = courseDao.findAll(example);
+        return all;
+    }
+
+
+    @Override
+    public List<CoursePO> listBySpecification() {
+
+        List<CoursePO> all = courseDao.findAll((Specification<CoursePO>) (root, query, criteriaBuilder) -> {
+            Predicate nameCondition = criteriaBuilder.like(root.get("name"), "%测试%");
+            Predicate period = criteriaBuilder.ge(root.get("period"), 10);
+            query.where(nameCondition,period);
+            return null;
+        });
+
+        all.forEach(p->log.info(p.toString()));
         return all;
     }
 }
