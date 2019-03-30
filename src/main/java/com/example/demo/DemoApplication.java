@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * 当前启动类和自定义的controller不在同一个包下的时候，需要指定要扫描的包
  * springboot learning:https://github.com/cmlbeliever/SpringBootLearning/tree/master/LearnTest/src
+ * 入门系列：https://blog.csdn.net/catoop/article/details/50501664/
  */
 //@SpringBootApplication
 @SpringBootConfiguration
