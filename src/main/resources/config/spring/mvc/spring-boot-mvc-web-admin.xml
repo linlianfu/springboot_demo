@@ -26,4 +26,7 @@
             <bean class="cn.eleven.common.intercept.WriteFastJsonHttpMessageConverter"/>
         </mvc:message-converters>
     </mvc:annotation-driven>
+    <mvc:interceptors>
+        <bean class="com.example.demo.autoconfig.interpect.UserLoginInterceptor"/>
+    </mvc:interceptors>
 </beans>
